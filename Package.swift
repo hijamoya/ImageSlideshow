@@ -12,19 +12,11 @@ let package = Package(
             name: "ImageSlideshow",
             targets: ["ImageSlideshow"]),
         .library(
-            name: "ImageSlideshow/Alamofire",
-            targets: ["ImageSlideshowAlamofire"]),
-        .library(
-            name: "ImageSlideshow/SDWebImage",
-            targets: ["ImageSlideshowSDWebImage"]),
-        .library(
             name: "ImageSlideshow/Kingfisher",
             targets: ["ImageSlideshowKingfisher"])
     ],
     dependencies: [
         .package(url: "https://github.com/onevcat/Kingfisher.git", from: "8.5.0"),
-        .package(url: "https://github.com/Alamofire/AlamofireImage.git", from: "4.0.0"),
-        .package(url: "https://github.com/SDWebImage/SDWebImage.git", from: "5.1.0")
     ],
     targets: [
         .target(
@@ -48,16 +40,6 @@ let package = Package(
                 .copy("Assets/ic_cross_white@2x.png"),
                 .copy("Assets/ic_cross_white@3x.png"),
             ]),
-        .target(
-            name: "ImageSlideshowAlamofire",
-            dependencies: ["ImageSlideshow", "AlamofireImage"],
-            path: "ImageSlideshow/Classes/InputSources",
-            sources: ["AlamofireSource.swift"]),
-        .target(
-            name: "ImageSlideshowSDWebImage",
-            dependencies: ["ImageSlideshow", "SDWebImage"],
-            path: "ImageSlideshow/Classes/InputSources",
-            sources: ["SDWebImageSource.swift"]),
         .target(
             name: "ImageSlideshowKingfisher",
             dependencies: ["ImageSlideshow", "Kingfisher"],
